@@ -38,6 +38,16 @@ namespace GeometryLib
             bool rezult = (summ - max > max);
             return rezult;
         }
+
+        public bool IsRight()
+        {
+            float[] arr = { side1, side2, side3 };
+            float hypotenuse = arr.Max();
+            float linesSquaresSumm = (arr.Where(x => x != hypotenuse).Select(y => y * y)).Sum();
+            return ( hypotenuse*hypotenuse == linesSquaresSumm);
+        }
+
+
     }
 
     public class Circle

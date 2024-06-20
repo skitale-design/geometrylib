@@ -19,6 +19,12 @@ namespace GeometryTest
         {
             Assert.ThrowsException<ArgumentOutOfRangeException>(()=>new Triangle(30, 4, 5));
         }
+        
+        [TestMethod]
+        public void TestIsRight()
+        {
+            Assert.IsTrue((new Triangle(3, 4, 5)).IsRight());
+        }
 
         [TestMethod]
         public void TestCircleSquareIsValid()
