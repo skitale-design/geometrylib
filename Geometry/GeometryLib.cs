@@ -8,7 +8,6 @@
 
         public Triangle(float side1, float side2, float side3)
         {
-
             if (IsValidFigure())
             {
             this.side1 = side1;
