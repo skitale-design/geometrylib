@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35004.147
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeometryLib", "Geometry\GeometryLib.csproj", "{D241591A-7EE5-4051-BF65-713B90BEAE12}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeometryUI", "GeometryUI\GeometryUI.csproj", "{F62675BD-6122-485F-BD38-C25F423000B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeometryTest", "GeometryTest\GeometryTest.csproj", "{E4C5D4E6-9D46-4632-8FDB-315D2FCF5AF9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D241591A-7EE5-4051-BF65-713B90BEAE12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D241591A-7EE5-4051-BF65-713B90BEAE12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D241591A-7EE5-4051-BF65-713B90BEAE12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D241591A-7EE5-4051-BF65-713B90BEAE12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F62675BD-6122-485F-BD38-C25F423000B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F62675BD-6122-485F-BD38-C25F423000B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F62675BD-6122-485F-BD38-C25F423000B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F62675BD-6122-485F-BD38-C25F423000B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4C5D4E6-9D46-4632-8FDB-315D2FCF5AF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4C5D4E6-9D46-4632-8FDB-315D2FCF5AF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4C5D4E6-9D46-4632-8FDB-315D2FCF5AF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4C5D4E6-9D46-4632-8FDB-315D2FCF5AF9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1D98F0C4-A24F-4DC9-928D-226C0C88DD4D}
+	EndGlobalSection
+EndGlobal
