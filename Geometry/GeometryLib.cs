@@ -8,13 +8,13 @@ namespace GeometryLib
         public float side2 { get; set; }
         public float side3 { get; set; }
 
-        public Triangle(float side1, float side2, float side3)
+        public Triangle(float _side1, float _side2, float _side3)
         {
-            if (IsValidFigure())
+            if (IsValidFigure(_side1,_side2,_side3))
             {
-                this.side1 = side1;
-                this.side2 = side2;
-                this.side3 = side3;
+                this.side1 = _side1;
+                this.side2 = _side2;
+                this.side3 = _side3;
             }
             else
             {
@@ -30,9 +30,9 @@ namespace GeometryLib
             return (float)Math.Round(Math.Sqrt(tmp), 2);
         }
 
-        private bool IsValidFigure()
+        private bool IsValidFigure(float _side1, float _side2, float _side3)
         {
-            var arr = new[] { side1, side2, side3 };
+            var arr = new[] { _side1, _side2, _side3 };
             var max = arr.Max();
             var summ = arr.Sum() ;
             bool rezult = (summ - max > max);
@@ -44,11 +44,11 @@ namespace GeometryLib
     {
         public float radius {get;set;}
 
-        public Circle(float radius)
+        public Circle(float _radius)
         {
-            if (IsValidFigure())
+            if (IsValidFigure(_radius))
             {
-                this.radius = radius;
+                this.radius = _radius;
             }
             else
             {
@@ -61,9 +61,9 @@ namespace GeometryLib
             return (float)Math.Round(double.Pi * radius * radius, 2);
         }
 
-        private bool IsValidFigure()
+        private bool IsValidFigure(float _radius)
         {
-            bool rezult = (radius > 0);
+            bool rezult = (_radius > 0);
             return rezult;
         }
     }
