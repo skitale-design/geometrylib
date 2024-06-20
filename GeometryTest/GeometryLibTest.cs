@@ -13,6 +13,12 @@ namespace GeometryTest
             Assert.AreEqual(6,triangle.GetSquare());
 
         }
+        
+        [TestMethod]
+        public void TestTriangleSquareIsValid2()
+        {
+            Assert.ThrowsException<ArgumentOutOfRangeException>(()=>new Triangle(30, 4, 5));
+        }
 
         [TestMethod]
         public void TestCircleSquareIsValid()

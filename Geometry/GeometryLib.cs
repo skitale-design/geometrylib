@@ -8,9 +8,17 @@
 
         public Triangle(float side1, float side2, float side3)
         {
+
+            if (IsValidFigure())
+            {
             this.side1 = side1;
             this.side2 = side2;
             this.side3 = side3;
+            }
+            else
+            {
+                throw new ArgumentOutOfRangeException("Can't build triangle with such lines");
+            }
         }
 
         public float GetSquare()
@@ -19,6 +27,15 @@
             float tmp = p * (p - side1) * (p - side2) * (p - side3);
 
             return (float)Math.Round(Math.Sqrt(tmp), 2);
+        }
+
+        private bool IsValidFigure()
+        {
+            var arr = new[] { side1, side2, side3 };
+            var max = arr.Max();
+            var summ = arr.Sum() ;
+            bool rezult = (summ - max > max);
+            return rezult;
         }
     }
 
