@@ -17,7 +17,7 @@
             }
             else
             {
-                throw new ArgumentOutOfRangeException("Can't build triangle with such lines");
+                throw new ArgumentOutOfRangeException("Can't build triangle from such lines. Some line is too long. Change params.");
             }
         }
 
