@@ -20,10 +20,12 @@ namespace GeometryTest
             Assert.ThrowsException<ArgumentOutOfRangeException>(()=>new Triangle(30, 4, 5));
         }
         
-        [TestMethod]
-        public void TestIsRight()
+        [DataTestMethod]
+        [DataRow(3,4,5,true)]
+        [DataRow(4,4,5,false)]
+        public void TestIsRight(float s1, float s2, float s3, bool expected)
         {
-            Assert.IsTrue((new Triangle(3, 4, 5)).IsRight());
+            Assert.AreEqual(expected,(new Triangle(s1, s2, s3)).IsRight());
         }
 
         [TestMethod]
