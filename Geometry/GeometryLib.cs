@@ -1,4 +1,6 @@
-﻿namespace GeometryLib
+﻿using System.Linq;
+
+namespace GeometryLib
 {
     public class Triangle
     {
@@ -10,9 +12,9 @@
         {
             if (IsValidFigure())
             {
-            this.side1 = side1;
-            this.side2 = side2;
-            this.side3 = side3;
+                this.side1 = side1;
+                this.side2 = side2;
+                this.side3 = side3;
             }
             else
             {
@@ -40,19 +42,29 @@
 
     public class Circle
     {
-        public float radius {
-            get;
-            set;
-        }
+        public float radius {get;set;}
 
         public Circle(float radius)
         {
-            this.radius = radius;
+            if (IsValidFigure())
+            {
+                this.radius = radius;
+            }
+            else
+            {
+                throw new ArgumentOutOfRangeException("The radius must be a positive number. Change the parameter.");
+            }
         }
 
         public float GetSquare()
         {
             return (float)Math.Round(double.Pi * radius * radius, 2);
+        }
+
+        private bool IsValidFigure()
+        {
+            bool rezult = (radius > 0);
+            return rezult;
         }
     }
 }

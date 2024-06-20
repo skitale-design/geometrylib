@@ -27,6 +27,12 @@ namespace GeometryTest
 
             Assert.AreEqual(3.14f,circle.GetSquare());
         }
+
+        [TestMethod]
+        public void TestCircleCreateException()
+        {
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => new Circle(0));
+        }
     }
 }
 

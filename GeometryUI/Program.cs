@@ -8,8 +8,8 @@ namespace GeometryUI
         {
             try
             {
-                Console.WriteLine(new Triangle(30,4,5).GetSquare()); // 6
-                Console.WriteLine(new Circle(1).GetSquare()); // 3.14
+                //Console.WriteLine(new Triangle(30,4,5).GetSquare()); // 6
+                Console.WriteLine(new Circle(0).GetSquare()); // 3.14
             }
             catch (Exception e)
             {
