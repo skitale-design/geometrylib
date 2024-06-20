@@ -2,7 +2,7 @@
 {
     public class Triangle
     {
-        public float side1 {  get; set; }
+        public float side1 { get; set; }
         public float side2 { get; set; }
         public float side3 { get; set; }
 
@@ -15,10 +15,28 @@
 
         public float GetSquare()
         {
-            float p = (side1 + side2 + side3)/2;
-            float tmp = p*(p - side1)*(p-side2)*(p-side3);
+            float p = (side1 + side2 + side3) / 2;
+            float tmp = p * (p - side1) * (p - side2) * (p - side3);
 
-            return (float)Math.Round(Math.Sqrt(tmp),2);
+            return (float)Math.Round(Math.Sqrt(tmp), 2);
+        }
+    }
+
+    public class Circle
+    {
+        public float radius {
+            get;
+            set;
+        }
+
+        public Circle(float radius)
+        {
+            this.radius = radius;
+        }
+
+        public float GetSquare()
+        {
+            return (float)Math.Round(double.Pi * radius * radius, 2);
         }
     }
 }
