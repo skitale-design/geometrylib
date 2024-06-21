@@ -19,8 +19,10 @@ namespace GeometryLib
             }
         }
     }
+
+    public class Triangle : AbstractFigure, IFigure
     {
-        public float[] floats { get; }
+        public new float[] floats { get; }
 
         public Triangle(float[] _floats)
         {
@@ -34,7 +36,7 @@ namespace GeometryLib
             }
         }
 
-        public float GetArea()
+        public override float GetArea()
         {
             float p = floats.Sum() / 2;
             float tmp = p * (p - floats[0]) * (p - floats[1]) * (p - floats[2]);
@@ -42,7 +44,7 @@ namespace GeometryLib
             return (float)Math.Round(Math.Sqrt(tmp), 2);
         }
 
-        public bool IsValidFigure(float[] _floats)
+        public override bool IsValidFigure(float[] _floats)
         {
             var max = _floats.Max();
             var summ = _floats.Sum() ;
@@ -60,10 +62,9 @@ namespace GeometryLib
 
     }
 
-    public class Circle : IFigure
+    public class Circle :AbstractFigure, IFigure 
     {
         public float[] floats { get; }
-        public float radius { get; set; }
 
         public Circle(float[] _floats)
         {
@@ -77,13 +78,13 @@ namespace GeometryLib
             }
         }
 
-        public float GetArea()
+        public override float GetArea()
         {
             float radius = floats[0];
             return (float)Math.Round(double.Pi * radius * radius, 2);
         }
 
-        public bool IsValidFigure(float[] _floats)
+        public override bool IsValidFigure(float[] _floats)
         {
             bool rezult = (_floats[0] > 0);
             return rezult;
@@ -95,6 +96,13 @@ namespace GeometryLib
         float[] floats { get;}
         float GetArea();
         bool IsValidFigure(float[] floats);
+    }
+
+    public abstract class AbstractFigure : IFigure
+    {
+        public float[] floats { get; }
+        public abstract float GetArea();
+        public abstract bool IsValidFigure(float[] floats);
     }
 
 }

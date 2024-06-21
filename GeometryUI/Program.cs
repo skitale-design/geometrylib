@@ -21,18 +21,23 @@ namespace GeometryUI
 
             foreach (var data in datas)
             {
-            try
-            {
+                try
+                {
                     figures.Add(Figure.FigureBuilder(data));
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.ToString());
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.ToString());
+                }
             }
 
-            foreach (var figure in figures)
+            foreach (IFigure figure in figures)
             {
-                Console.WriteLine($"S = {figure.GetArea()}"); 
+                Console.WriteLine($"{figure.ToString()} [{string.Join(", ",figure.floats)}] AREA = {figure.GetArea()}");
+                if (figure.GetType().Name == "Triangle")
+                {
+                    Console.WriteLine($"      is right? : {((Triangle)figure).IsRight()}");
+                }
             }
 
             Console.ReadKey();
