@@ -23,7 +23,7 @@ namespace GeometryUI
 
             foreach (var figure in figures)
             {
-                Console.WriteLine($"S = {figure.GetSquare()}"); 
+                Console.WriteLine($"S = {figure.GetArea()}"); 
             }
 
             Console.ReadKey();

@@ -18,7 +18,7 @@ namespace GeometryLib
             }
         }
 
-        public float GetSquare()
+        public float GetArea()
         {
             float p = floats.Sum() / 2;
             float tmp = p * (p - floats[0]) * (p - floats[1]) * (p - floats[2]);
@@ -61,7 +61,7 @@ namespace GeometryLib
             }
         }
 
-        public float GetSquare()
+        public float GetArea()
         {
             return (float)Math.Round(double.Pi * radius * radius, 2);
         }
@@ -76,7 +76,7 @@ namespace GeometryLib
     public interface IFigure
     {
         float[] floats { get;}
-        float GetSquare();
+        float GetArea();
         bool IsValidFigure(float[] floats);
     }
 

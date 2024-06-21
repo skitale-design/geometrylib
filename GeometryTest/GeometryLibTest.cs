@@ -10,7 +10,7 @@ namespace GeometryTest
         {
             Triangle triangle = new Triangle([3,4,5]);
 
-            Assert.AreEqual(6,triangle.GetSquare());
+            Assert.AreEqual(6,triangle.GetArea());
 
         }
         
@@ -33,7 +33,7 @@ namespace GeometryTest
         {
             Circle circle = new Circle([1]);
 
-            Assert.AreEqual(3.14f,circle.GetSquare());
+            Assert.AreEqual(3.14f,circle.GetArea());
         }
 
         [TestMethod]
