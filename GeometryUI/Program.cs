@@ -33,13 +33,13 @@ namespace GeometryUI
 
             foreach (IFigure figure in figures)
             {
-                Console.WriteLine($"{figure.ToString()} [{string.Join(", ",figure.floats)}] AREA = {figure.GetArea()}");
-                if (figure.GetType().Name == "Triangle")
+                Console.WriteLine($"{figure.GetType().Name}[{string.Join(", ",figure.floats)}] AREA = {figure.GetArea()}");
+                if (figure as Triangle != null)
                 {
-                    Console.WriteLine($"      is right? : {((Triangle)figure).IsRight()}");
+                    Console.WriteLine($"Is right? : {((Triangle)figure).IsRight()}");
                 }
+                Console.WriteLine();
             }
-
             Console.ReadKey();
         }
     }
