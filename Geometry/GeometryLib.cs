@@ -11,7 +11,7 @@ namespace GeometryLib
                 case 1:
                     return new Circle(floats);
                 case 2:
-                    throw new NotImplementedException("\nALERT:: The simple Quadrilaterals are not implemented yet.");
+                    return new Rectangle(floats);
                 case 3: 
                     return new Triangle(floats);
                 default:
@@ -20,20 +20,25 @@ namespace GeometryLib
         }
     }
 
-    public class Triangle : AbstractFigure, IFigure
+    internal class Rectangle : AbstractFigure, IFigure
     {
-        public new float[] floats { get; }
+        private new float[] floats;
 
-        public Triangle(float[] _floats)
+        public Rectangle(float[] _floats) : base(_floats, $"\nERROR:: Params: [{string.Join(", ", _floats)}] Is not valid Rectangle. Change params.")
         {
-            if (IsValidFigure(_floats))
-            {
-                floats = _floats;
-            }
-            else
-            {
-                throw new ArgumentOutOfRangeException($"\nERROR:: Params: [{string.Join(", ", _floats)}] Can't build triangle from such lines. Some line is too long. Change params.");
-            }
+            floats = _floats;
+        }
+
+        public override float GetArea()
+        {
+            return floats[0] * floats[1];
+        }
+
+        public override bool IsValidFigure(float[] floats)
+        {
+            return (!floats.Any(x=> x<=0));
+        }
+    }
 
     public class Triangle : AbstractFigure, IFigure
     {
@@ -75,9 +80,9 @@ namespace GeometryLib
         public new float[] floats { get; }
 
         public Circle(float[] _floats) : base(_floats, $"\nERROR:: Params: [{string.Join(", ", _floats)}] The radius must be a positive number. Change the parameter.") 
-            {
-                floats = _floats;
-            }
+        { 
+            floats = _floats;
+        }
 
         public override float GetArea()
         {

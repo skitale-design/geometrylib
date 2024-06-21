@@ -8,9 +8,9 @@ namespace GeometryUI
         {
             var datas = new List<float[]>()
             {
+                new float[] {3,3},
                 new float[] {3, 4, 5 },
                 new float[] {3},
-                new float[] {3,3},
                 new float[] {-1},
                 new float[] {5, 4, 5},
                 new float[] {10, 4, 5},
