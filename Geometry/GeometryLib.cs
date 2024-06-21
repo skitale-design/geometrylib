@@ -34,6 +34,14 @@ namespace GeometryLib
             {
                 throw new ArgumentOutOfRangeException($"\nERROR:: Params: [{string.Join(", ", _floats)}] Can't build triangle from such lines. Some line is too long. Change params.");
             }
+
+    public class Triangle : AbstractFigure, IFigure
+    {
+        public new float[] floats { get; }
+
+        public Triangle(float[] _floats) : base(_floats, $"\nERROR:: Params: [{string.Join(", ", _floats)}] Can't build triangle from such lines. Some line is too long. Change params.")
+        {
+            floats = _floats;
         }
 
         public override float GetArea()
@@ -64,19 +72,12 @@ namespace GeometryLib
 
     public class Circle :AbstractFigure, IFigure 
     {
-        public float[] floats { get; }
+        public new float[] floats { get; }
 
-        public Circle(float[] _floats)
-        {
-            if (IsValidFigure(_floats))
+        public Circle(float[] _floats) : base(_floats, $"\nERROR:: Params: [{string.Join(", ", _floats)}] The radius must be a positive number. Change the parameter.") 
             {
                 floats = _floats;
             }
-            else
-            {
-                throw new ArgumentOutOfRangeException($"\nERROR:: Params: [{string.Join(", ", _floats)}] The radius must be a positive number. Change the parameter.");
-            }
-        }
 
         public override float GetArea()
         {
@@ -101,6 +102,17 @@ namespace GeometryLib
     public abstract class AbstractFigure : IFigure
     {
         public float[] floats { get; }
+        protected AbstractFigure(float[] _floats, string exceptionMessage)
+        {
+            if (IsValidFigure(_floats))
+            {
+                floats = _floats;
+            }
+            else
+            {
+                throw new ArgumentOutOfRangeException(exceptionMessage);
+            }
+        }
         public abstract float GetArea();
         public abstract bool IsValidFigure(float[] floats);
     }
