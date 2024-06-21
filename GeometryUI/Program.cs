@@ -6,14 +6,24 @@ namespace GeometryUI
     {
         static void Main(string[] args)
         {
+            List<IFigure> figures = new List<IFigure>();
+
             try
             {
-                //Console.WriteLine(new Triangle(30,4,5).GetSquare()); // 6
-                Console.WriteLine(new Circle(0).GetSquare()); // 3.14
+                figures.Add(new Triangle([3, 4, 5]));
+                figures.Add(new Circle([3]));
+                figures.Add(new Circle([-1])); // error
+                figures.Add(new Triangle([5, 4, 5]));
+                figures.Add(new Triangle([10, 4, 5])); //error, but unavailable
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
+            }
+
+            foreach (var figure in figures)
+            {
+                Console.WriteLine($"S = {figure.GetSquare()}"); 
             }
 
             Console.ReadKey();

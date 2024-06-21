@@ -2,63 +2,58 @@
 
 namespace GeometryLib
 {
-    public class Triangle
+    public class Triangle : IFigure
     {
-        public float side1 { get; set; }
-        public float side2 { get; set; }
-        public float side3 { get; set; }
+        public float[] floats { get; }
 
-        public Triangle(float _side1, float _side2, float _side3)
+        public Triangle(float[] _floats)
         {
-            if (IsValidFigure(_side1,_side2,_side3))
+            if (IsValidFigure(_floats))
             {
-                this.side1 = _side1;
-                this.side2 = _side2;
-                this.side3 = _side3;
+                floats = _floats;
             }
             else
             {
-                throw new ArgumentOutOfRangeException("Can't build triangle from such lines. Some line is too long. Change params.");
+                throw new ArgumentOutOfRangeException($"\nParams: [{string.Join(", ", _floats)}] Can't build triangle from such lines. Some line is too long. Change params.");
             }
         }
 
         public float GetSquare()
         {
-            float p = (side1 + side2 + side3) / 2;
-            float tmp = p * (p - side1) * (p - side2) * (p - side3);
+            float p = floats.Sum() / 2;
+            float tmp = p * (p - floats[0]) * (p - floats[1]) * (p - floats[2]);
 
             return (float)Math.Round(Math.Sqrt(tmp), 2);
         }
 
-        private bool IsValidFigure(float _side1, float _side2, float _side3)
+        public bool IsValidFigure(float[] _floats)
         {
-            var arr = new[] { _side1, _side2, _side3 };
-            var max = arr.Max();
-            var summ = arr.Sum() ;
+            var max = _floats.Max();
+            var summ = _floats.Sum() ;
             bool rezult = (summ - max > max);
             return rezult;
         }
 
         public bool IsRight()
         {
-            float[] arr = { side1, side2, side3 };
-            float hypotenuse = arr.Max();
-            float linesSquaresSumm = (arr.Where(x => x != hypotenuse).Select(y => y * y)).Sum();
+            float hypotenuse = floats.Max();
+            float linesSquaresSumm = (floats.Where(x => x != hypotenuse).Select(y => y * y)).Sum();
             return ( hypotenuse*hypotenuse == linesSquaresSumm);
         }
 
 
     }
 
-    public class Circle
+    public class Circle : IFigure
     {
-        public float radius {get;set;}
+        public float[] floats { get; }
+        public float radius { get; set; }
 
-        public Circle(float _radius)
+        public Circle(float[] _floats)
         {
-            if (IsValidFigure(_radius))
+            if (IsValidFigure(_floats))
             {
-                this.radius = _radius;
+                this.radius = _floats[0];
             }
             else
             {
@@ -71,10 +66,18 @@ namespace GeometryLib
             return (float)Math.Round(double.Pi * radius * radius, 2);
         }
 
-        private bool IsValidFigure(float _radius)
+        public bool IsValidFigure(float[] _floats)
         {
-            bool rezult = (_radius > 0);
+            bool rezult = (_floats[0] > 0);
             return rezult;
         }
     }
+
+    public interface IFigure
+    {
+        float[] floats { get;}
+        float GetSquare();
+        bool IsValidFigure(float[] floats);
+    }
+
 }
