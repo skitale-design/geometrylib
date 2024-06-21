@@ -1,4 +1,7 @@
 ﻿using System.Linq;
+using System;
+
+[assembly: CLSCompliant(true)]
 
 namespace GeometryLib
 {
