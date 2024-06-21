@@ -14,7 +14,7 @@ namespace GeometryLib
             }
             else
             {
-                throw new ArgumentOutOfRangeException($"\nParams: [{string.Join(", ", _floats)}] Can't build triangle from such lines. Some line is too long. Change params.");
+                throw new ArgumentOutOfRangeException($"\nERROR:: Params: [{string.Join(", ", _floats)}] Can't build triangle from such lines. Some line is too long. Change params.");
             }
         }
 
@@ -57,7 +57,7 @@ namespace GeometryLib
             }
             else
             {
-                throw new ArgumentOutOfRangeException("The radius must be a positive number. Change the parameter.");
+                throw new ArgumentOutOfRangeException($"\nERROR:: Params: [{string.Join(", ", _floats)}] The radius must be a positive number. Change the parameter.");
             }
         }
 
