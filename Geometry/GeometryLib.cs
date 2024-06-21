@@ -2,7 +2,23 @@
 
 namespace GeometryLib
 {
-    public class Triangle : IFigure
+    public static class Figure
+    {
+        public static IFigure FigureBuilder(float[] floats)
+        {
+            switch (floats.Length)
+            {
+                case 1:
+                    return new Circle(floats);
+                case 2:
+                    throw new NotImplementedException("\nALERT:: The simple Quadrilaterals are not implemented yet.");
+                case 3: 
+                    return new Triangle(floats);
+                default:
+                    throw new ArgumentNullException(nameof(floats));
+            }
+        }
+    }
     {
         public float[] floats { get; }
 
@@ -53,7 +69,7 @@ namespace GeometryLib
         {
             if (IsValidFigure(_floats))
             {
-                this.radius = _floats[0];
+                floats = _floats;
             }
             else
             {
@@ -63,6 +79,7 @@ namespace GeometryLib
 
         public float GetArea()
         {
+            float radius = floats[0];
             return (float)Math.Round(double.Pi * radius * radius, 2);
         }
 
